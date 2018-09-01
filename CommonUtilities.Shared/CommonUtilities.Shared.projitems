@@ -9,30 +9,11 @@
     <Import_RootNamespace>CommonUtilities.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\BytesHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\CompressHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\CryptographyHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\DateTimeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\LockHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\NumberHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assembly\AssemblyHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\EnumerableHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\DirectoryHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\EasyTimer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\EncodingHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\FileLogHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\FtpWebRequestResponseHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\GCNotifier.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\KeyedPriorityQueue.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\PathFileHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\RemotingHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\SequenceSeedHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\SerializerHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\StreamDataHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\StringsHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\TaskProcessorHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\TryCatchFinallyHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)00.Utilities\WindowTaskProcessorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataReader\DataReaderHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DynamicExpression\ExpressionTreeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DynamicExpression\ExpressionTreeHelper.DynamicCallMethodExpressionTreeInvokerHelper.cs" />
