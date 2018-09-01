@@ -18,10 +18,11 @@
     {
       "ConnectionID": "mssql2",
       "DataBaseType": "mssql",
-      "ConnectionString": "Initial Catalog=StandardFlowInfo;Data Source=sops-db.eastus.cloudapp.azure.com;User=sa;Password=GreatWB001!~",
+      "ConnectionString": "Initial Catalog=test;Data Source=localhost;User=sa;Password=!@#123QWE",
       "WhiteList": [
         {
-          "StoreProcedureName": "zsp_GetObjectHistory",
+          "StoreProcedureName": "zsp_zObjectsChangesLogsHistory_Get",
+          "StoreProcedureAlias": "Objects",
           "AllowedHttpMethods": "All"
         },
         {
