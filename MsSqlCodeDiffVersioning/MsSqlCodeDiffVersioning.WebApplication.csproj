@@ -56,4 +56,8 @@
     <ProjectReference Include="..\CommonUtilities.NET.Core.2.x\CommonUtilities.NET.Core.2.x.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy ..\StoreProcedureWebApiExecutorsPlugins\MsSQL.StoreProcedureWebApiExecutor.Plugin\bin\Debug\netcoreapp2.1\*.plugin.* $(TargetDir)CompositionPlugins\ /Y&#xD;&#xA;xcopy ..\StoreProcedureWebApiExecutorsPlugins\MySQL.StoreProcedureWebApiExecutor.Plugin\bin\Debug\netcoreapp2.1\*.plugin.* $(TargetDir)CompositionPlugins\ /Y&#xD;&#xA;xcopy ..\StoreProcedureWebApiExecutorsPlugins\MsSQL.StoreProcedureWebApiExecutor.Plugin\bin\Debug\netcoreapp2.1\*.plugin.* $(ProjectDir)bin\publish\Linux-x64\netcoreapp2.1\CompositionPlugins\ /Y&#xD;&#xA;xcopy ..\StoreProcedureWebApiExecutorsPlugins\MySQL.StoreProcedureWebApiExecutor.Plugin\bin\Debug\netcoreapp2.1\*.plugin.* $(ProjectDir)bin\publish\Linux-x64\netcoreapp2.1\CompositionPlugins\ /Y" />
+  </Target>
+
 </Project>
