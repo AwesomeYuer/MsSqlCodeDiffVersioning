@@ -370,6 +370,15 @@
                             DbConnection connection
                             , string storeProcedureName
                             , string p = null //string.Empty
+                            , Func
+                                <
+                                    IDataReader
+                                    , Type        // fieldType
+                                    , string    // fieldName
+                                    , int       // row index
+                                    , int       // column index
+                                    , JProperty   //  JObject Field 对象
+                                > onReadRowColumnProcessFunc = null
                             , int commandTimeout = 90
                         )
          {
@@ -380,6 +389,7 @@
                         connection
                         , storeProcedureName
                         , inputsParameters
+                        , onReadRowColumnProcessFunc
                         , commandTimeout
                     );
         }
@@ -390,6 +400,15 @@
                             DbConnection connection
                             , string storeProcedureName
                             , JToken inputsParameters = null //string.Empty
+                            , Func
+                                <
+                                    IDataReader
+                                    , Type        // fieldType
+                                    , string    // fieldName
+                                    , int       // row index
+                                    , int       // column index
+                                    , JProperty   //  JObject Field 对象
+                                > onReadRowColumnProcessFunc = null
                             , int commandTimeout = 90
                         )
         {
@@ -479,7 +498,10 @@
                         var columns = dataReader
                                         .GetColumnsJTokensEnumerable();
                         var rows = dataReader
-                                        .AsRowsJTokensEnumerable();
+                                        .AsRowsJTokensEnumerable
+                                            (
+                                                onReadRowColumnProcessFunc
+                                            );
                         (
                             (JArray)
                                 result

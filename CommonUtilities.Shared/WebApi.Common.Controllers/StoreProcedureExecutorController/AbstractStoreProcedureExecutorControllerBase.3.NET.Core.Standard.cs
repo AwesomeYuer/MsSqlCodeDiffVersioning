@@ -13,7 +13,7 @@ namespace Microshaoft.WebApi.Controllers
                     :
                         ControllerBase
     {
-        private readonly
+        protected readonly
                     IStoreProceduresWebApiService
                             _service;
 
@@ -34,7 +34,7 @@ namespace Microshaoft.WebApi.Controllers
         [
             Route
                 (
-                    "{connectionID}/"
+                    "{connectionID:regex(^(?!test))?}/"
                     + "{storeProcedureName}/"
                     + "{resultPathSegment1?}/"
                     + "{resultPathSegment2?}/"
@@ -74,6 +74,10 @@ namespace Microshaoft.WebApi.Controllers
                                 connectionID
                                 , storeProcedureName
                                 , parameters
+                                , (reader, fieldType ,fieldName, columnIndex, rowIndex) =>
+                                {
+                                    return null;
+                                }
                                 , Request.Method
                                 , 102
                             );

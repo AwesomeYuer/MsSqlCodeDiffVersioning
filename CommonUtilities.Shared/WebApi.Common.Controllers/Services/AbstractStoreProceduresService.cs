@@ -8,6 +8,7 @@ namespace Microshaoft.Web
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -19,6 +20,15 @@ namespace Microshaoft.Web
                         string connectionID
                         , string storeProcedureName
                         , JToken parameters = null
+                        , Func
+                                <
+                                    IDataReader
+                                    , Type        // fieldType
+                                    , string    // fieldName
+                                    , int       // row index
+                                    , int       // column index
+                                    , JProperty   //  JObject Field 对象
+                                > onReadRowColumnProcessFunc = null
                         , string httpMethod = "Get"
                         , int commandTimeoutInSeconds = 101
                     );
@@ -364,6 +374,15 @@ namespace Microshaoft.Web
                                 string connectionID //= "mssql"
                                 , string storeProcedureName
                                 , JToken parameters = null
+                                , Func
+                                    <
+                                        IDataReader
+                                        , Type        // fieldType
+                                        , string    // fieldName
+                                        , int       // row index
+                                        , int       // column index
+                                        , JProperty   //  JObject Field 对象
+                                    > onReadRowColumnProcessFunc = null
                                 , string httpMethod = "Get"
                                 , int commandTimeoutInSeconds = 101
                             )
@@ -388,6 +407,7 @@ namespace Microshaoft.Web
                             , httpMethod
                             , parameters
                             , out result
+                            , onReadRowColumnProcessFunc
                             , commandTimeoutInSeconds
                         );
             }
@@ -416,6 +436,15 @@ namespace Microshaoft.Web
                 , string httpMethod
                 , JToken parameters
                 , out JToken result
+                , Func
+                    <
+                        IDataReader
+                        , Type        // fieldType
+                        , string    // fieldName
+                        , int       // row index
+                        , int       // column index
+                        , JProperty   //  JObject Field 对象
+                    > onReadRowColumnProcessFunc = null
                 , int commandTimeoutInSeconds = 90
             )
         {
@@ -453,6 +482,7 @@ namespace Microshaoft.Web
                             , storeProcedureName
                             , parameters
                             , out result
+                            , onReadRowColumnProcessFunc
                             , commandTimeoutInSeconds
                         );
             }
@@ -465,6 +495,15 @@ namespace Microshaoft.Web
                             , string storeProcedureName
                             , JToken parameters
                             , out JToken result
+                            , Func
+                                <
+                                    IDataReader
+                                    , Type        // fieldType
+                                    , string    // fieldName
+                                    , int       // row index
+                                    , int       // column index
+                                    , JProperty   //  JObject Field 对象
+                                > onReadRowColumnProcessFunc = null
                             , int commandTimeoutInSeconds = 90
                         )
         {
@@ -486,6 +525,7 @@ namespace Microshaoft.Web
                                 , storeProcedureName
                                 , parameters
                                 , out result
+                                , onReadRowColumnProcessFunc
                                 , commandTimeoutInSeconds
                             );
             }
@@ -498,6 +538,15 @@ namespace Microshaoft.Web
                             , string storeProcedureName
                             , string parameters
                             , out JToken result
+                            , Func
+                                <
+                                    IDataReader
+                                    , Type        // fieldType
+                                    , string    // fieldName
+                                    , int       // row index
+                                    , int       // column index
+                                    , JProperty   //  JObject Field 对象
+                                > onReadRowColumnProcessFunc = null
                             , int commandTimeoutInSeconds = 90
                         )
         {
@@ -507,8 +556,9 @@ namespace Microshaoft.Web
                             connectionString
                             , dataBaseType
                             , storeProcedureName
-                            , j
+                            , parameters
                             , out result
+                            , onReadRowColumnProcessFunc
                             , commandTimeoutInSeconds
                         );
             return r;
